@@ -1,0 +1,17 @@
+<!--Write a Program for mouse handling event, when user hover on div then text color will change black to white and
+div background color change to blue. -->
+<!DOCTYPE>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div id="box" style="height:100px; width:100px; color: black; background: red;">Click Me</div>
+        <script>
+            document.getElementById("box").onmouseover = function(){
+                this.style.background = "blue";
+                this.style.color = "white";
+            }
+        </script>
+    </body>
+</html>
