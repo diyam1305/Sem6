@@ -1,0 +1,35 @@
+<!--(2)  Write a program to mark tasks as completed in a to-do list. (B)-->  
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Mark Task Completed</title> 
+    <style> 
+        .completed { 
+            text-decoration: line-through; 
+            color: gray; 
+        } 
+    </style> 
+</head> 
+<body> 
+    <h2>To-Do List</h2> 
+    <h5>Completed Task</h5>
+    <input type="text" id="taskInput" placeholder="Enter a task"> 
+    <button onclick="addTask()">Add Task</button> 
+    <ul id="taskList"></ul> 
+    <script> 
+        function addTask() 
+        { 
+            const input = document.getElementById("taskInput"); 
+            const task = input.value.trim(); 
+            if (task === "") return; 
+            const li = document.createElement("li"); 
+            li.textContent = task; 
+            li.addEventListener("click", function () { 
+                li.classList.toggle("completed"); 
+            }); 
+            document.getElementById("taskList").appendChild(li); 
+            input.value = ""; 
+        } 
+    </script> 
+</body> 
+</html>

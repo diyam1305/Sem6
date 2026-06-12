@@ -1,0 +1,66 @@
+<!--(3)  Write a program to save tasks in localStorage and retrieve them when the page reloads. (C) -->
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title></title> 
+    <style> 
+        .completed { 
+            text-decoration: line-through; 
+            color: gray; 
+        } 
+    </style> 
+</head> 
+<body> 
+ 
+<h2>To-Do List</h2> 
+ 
+<input id="taskInput" type="text" placeholder="Enter task"> 
+<button onclick="addTask()">Add Task</button> 
+ 
+<ul id="taskList"></ul> 
+ 
+<script>  
+// Load tasks on page refresh 
+window.onload = loadTasks; 
+ 
+function addTask() { 
+    const input = document.getElementById("taskInput"); 
+    const task = input.value.trim(); 
+    if (!task) return; 
+ 
+    createTask(task, false); 
+    saveTasks(); 
+    input.value = ""; 
+} 
+ 
+// Create & display task 
+function createTask(text, completed) { 
+    const li = document.createElement("li"); 
+    li.textContent = text; 
+ 
+    if (completed) li.classList.add("completed"); 
+ 
+    li.onclick = () => { 
+        li.classList.toggle("completed"); 
+        saveTasks(); 
+    }; 
+    taskList.appendChild(li); 
+} 
+ 
+// Save tasks to localStorage 
+function saveTasks() { 
+    const tasks = [...document.querySelectorAll("#taskList li")].map(li => ({ 
+        text: li.textContent, 
+        completed: li.classList.contains("completed") 
+    })); 
+    localStorage.setItem("tasks", JSON.stringify(tasks)); 
+} 
+ 
+// Load tasks from localStorage 
+function loadTasks() { 
+    const saved = JSON.parse(localStorage.getItem("tasks")) || []; 
+    saved.forEach(t => createTask(t.text, t.completed)); 
+} 
+</script> 
+</body> 
+</html>
