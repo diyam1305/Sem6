@@ -1,0 +1,37 @@
+<!-- WAP to store and display student names using arrays -->
+<!DOCTYPE html>
+<html>
+<body>
+
+  <label>Enter name:</label>
+  <input type="text" id="student_name">
+  <button id="submit">Add</button>
+
+  <ul id="list"></ul>
+
+  <script>
+    let students = [];
+
+    let submit_btn = document.getElementById("submit");
+
+    submit_btn.addEventListener("click", () => {
+      let student_name = document.getElementById("student_name").value;
+
+      // store name in array
+      students.push(student_name);
+      console.log(students);
+
+      // create list item
+      let list_item = document.createElement("li");
+      list_item.innerText = student_name;
+
+      // append to ul
+      let list = document.getElementById("list");
+      list.appendChild(list_item);
+
+      // clear input
+      document.getElementById("student_name").value = "";
+    });
+  </script>
+</body>
+</html>
