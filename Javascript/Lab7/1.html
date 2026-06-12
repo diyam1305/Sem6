@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <script>
+        fetch("1.json")
+        .then(res => res.json())
+        .then(data=> {
+            data=JSON.stringify(data);
+            console.log(data);
+        })  
+    </script>
+</body>
+</html>
