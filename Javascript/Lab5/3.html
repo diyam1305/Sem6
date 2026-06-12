@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form Validation</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+        input {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+<form>
+    Username:<br>
+    <input type="text" id="username" onkeyup="validateUsername()">
+    <div id="userError" class="error"></div><br>
+
+    Email:<br>
+    <input type="text" id="email" onkeyup="validateEmail()">
+    <div id="emailError" class="error"></div><br>
+
+    Password:<br>
+    <input type="password" id="password" onkeyup="validatePassword()">
+    <div id="passError" class="error"></div><br>
+
+    Confirm Password:<br>
+    <input type="password" id="confirmPassword" onkeyup="validateConfirmPass()">
+    <div id="cpassError" class="error"></div><br>
+
+    <button type="submit">Register</button>
+</form>
+
+<script>
+function validateUsername() 
+{
+    var username = document.getElementById("username").value;
+    var error = document.getElementById("userError");
+
+    if (username === "") 
+    {
+        error.innerHTML = "Username is required";
+    } 
+    else if (username.length < 3) 
+    {
+        error.innerHTML = "Username must be at least 3 characters";
+    } 
+    else 
+    {
+        error.innerHTML = "";
+    }
+}
+
+function validateEmail() 
+{
+    var email = document.getElementById("email").value;
+    var error = document.getElementById("emailError");
+    var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if (email === "") 
+    {
+        error.innerHTML = "Email is required";
+    } 
+    else if (!email.match(pattern)) 
+    {
+        error.innerHTML = "Invalid email format";
+    }
+    else 
+    {
+        error.innerHTML = "";
+    }
+}
+
+function validatePassword() 
+{
+    var password = document.getElementById("password").value;
+    var error = document.getElementById("passError");
+
+    if (password === "") 
+    {
+        error.innerHTML = "Password is required";
+    } 
+    else if (password.length < 6) 
+    {
+        error.innerHTML = "Password must be at least 6 characters";
+    } 
+    else 
+    {
+        error.innerHTML = "";
+    }
+}
+
+function validateConfirmPass() 
+{
+    var password = document.getElementById("password").value;
+    var confirmPassword = document.getElementById("confirmPassword").value;
+    var error = document.getElementById("cpassError");
+
+    if (confirmPassword === "") 
+    {
+        error.innerHTML = "Confirm password is required";
+    } 
+    else if (password !== confirmPassword) 
+    {
+        error.innerHTML = "Passwords do not match";
+    } 
+    else 
+    {
+        error.innerHTML = "";
+    }
+}
+</script>
+
+</body>
+</html>

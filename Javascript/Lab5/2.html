@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        .error 
+        { 
+            color: red; 
+          }
+    </style>
+</head>
+<body>
+    <form onsubmit="return validateRegister()">
+        Username:
+        <input type="text" id="username">
+        <span id="userError" class="error"></span><br><br>
+
+        Email:
+        <input type="text" id="email">
+        <span id="emailError" class="error"></span><br><br>
+        
+        Password:
+        <input type="password" id="password">
+        <span id="passError" class="error"></span><br><br>
+
+        <input type="submit" value="Register">
+    </form>
+
+    <script>
+        function validateRegister() {
+            let valid = true;
+
+            document.getElementById("userError").innerHTML = "";
+            document.getElementById("emailError").innerHTML = "";
+            document.getElementById("passError").innerHTML = "";
+
+            let user = document.getElementById("username").value;
+            let email = document.getElementById("email").value;
+            let pass = document.getElementById("password").value;
+
+            let emailpattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (user === "") 
+            {
+                document.getElementById("userError").innerHTML = "Username is required";
+                valid = false;
+            }
+
+            if (!emailpattern.test(email)) 
+            {
+                document.getElementById("emailError").innerHTML = "Invalid email-id";
+                valid = false;
+            }
+
+            if (pass.length < 8) 
+            {
+                document.getElementById("passError").innerHTML = "Enter at least 8 characters";
+                valid = false;
+            }
+            return valid;
+        }
+    </script>
+</body>
+</html>
