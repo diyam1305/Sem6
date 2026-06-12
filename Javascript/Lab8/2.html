@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <script>
+            const student = { name: "xyz", age: 19};
+            const { name, age } = student;
+            const marks = [85, 90];
+            const [maths, science] = marks;
+            const allMarks = [...marks, 95];
+
+            console.log("You are " + name +" & your age is " + age);
+            console.log("Maths:"+ maths + ", Science:" + science);
+            console.log(allMarks);
+        </script>
+    </body>
+</html>
