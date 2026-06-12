@@ -1,0 +1,53 @@
+<!--wap to filter students who scored more than 35 marks using filter.-->
+<!DOCTYPE html>
+<html>
+<body>
+
+  <label>Enter marks (0-100):</label>
+  <input type="number" id="student_name">
+  <button id="submit">Add</button>
+  <button id="filter">Filter Student</button>
+
+  <h3>All Marks</h3>
+  <ul id="list"></ul>
+
+  <h3>Filtered Marks (Above 35)</h3>
+  <ul id="filteredList"></ul>
+
+  <script>
+    let students = [];
+    let submit_btn = document.getElementById("submit");
+
+    submit_btn.addEventListener("click", () => {
+      let student_name = document.getElementById("student_name").value;
+
+      if (student_name !== "") {
+        students.push(Number(student_name));
+
+        let list_item = document.createElement("li");
+        list_item.innerText = student_name;
+
+        document.getElementById("list").appendChild(list_item);
+        document.getElementById("student_name").value = "";
+      }
+    });
+
+    let filter_student = document.getElementById("filter");
+
+    filter_student.addEventListener("click", () => {
+      let filteredList = document.getElementById("filteredList");
+      filteredList.innerHTML = ""; // clear old data
+
+      let passedStudents = students.filter((stu) => {
+        return stu > 35;
+      });
+
+      passedStudents.forEach((mark) => {
+        let li = document.createElement("li");
+        li.innerText = mark;
+        filteredList.appendChild(li);
+      });
+    });
+  </script>
+</body>
+</html>

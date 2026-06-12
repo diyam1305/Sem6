@@ -1,0 +1,25 @@
+<!--wap to calculate avg marks of students using reduce-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>Enter Marks (comma separated)</h3>
+<input type="text" id="marksInput">
+<button onclick="calculateAvg()">Calculate Average</button>
+
+<p id="result"></p>
+
+<script>
+    function calculateAvg() {
+        let marks = document.getElementById("marksInput").value
+            .split(",")
+            .map(Number);
+
+        let sum = marks.reduce((total, mark) => total + mark, 0);
+        let avg = sum / marks.length;
+
+        document.getElementById("result").innerText = "Average Marks = " + avg;
+    }
+</script>
+</body>
+</html>
