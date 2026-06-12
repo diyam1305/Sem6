@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Weather API Key</title>
+</head>
+<body>
+    <h1>Weather API Key</h1>
+    <input type="button" value="Get Details" onclick="detail('rajkot') ">
+    <div id="result" ></div>
+    <script>
+        const apiKey = '1639e145b6de8ccfadf98b1006d94e50';
+        function detail(city){
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+            fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const temp = data.main.temp;
+                const weather = data.weather[0].description;
+                document.getElementById('result').innerHTML = `<h2>Temperature: ${temp} °C</h2><h3>Weather: ${weather}</h3>`;
+            })
+        }
+    </script>   
+</body>
+</html>

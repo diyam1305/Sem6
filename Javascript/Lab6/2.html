@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <textarea id="msg" maxlength="100" onkeyup="countChar()"></textarea>
+        <p>Remaining characters: <span id="count">100</span></p>
+        <p id="alert"></p>
+        <script>
+        function countChar() {
+            var max = 100;
+            var len = document.getElementById("msg").value.length;
+            var remaining = max - len;
+            document.getElementById("count").innerText = remaining;
+
+            if (remaining == 0)
+            {
+                document.getElementById("alert").innerText = "You have reached your limit";        
+            }
+            else
+            {
+                document.getElementById("alert").innerText = "";
+            }
+        }
+        </script>
+    </body>
+</html>
