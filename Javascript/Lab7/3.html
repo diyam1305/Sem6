@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Data with Search bar in tabular form</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h2>User List</h2>
+<input type="text" id="search" placeholder="Search by name">
+<br><br>
+<table border="1" cellpadding="8">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody id="tableData"></tbody>
+</table>
+<script>
+    var usersData = [];
+    fetch("https://jsonplaceholder.typicode.com/users")
+    .then(res => res.json())
+    .then(data => {
+        usersData = data;
+        displayData(data);
+    });
+    function displayData(data) {
+        var rows = "";
+        for (var i = 0; i < data.length; i++) {
+            rows = rows + "<tr>";
+            rows = rows + "<td>" + data[i].id + "</td>";
+            rows = rows +"<td>" + data[i].name + "</td>";
+            rows = rows + "<td>" + data[i].email + "</td>";
+            rows = rows +"</tr>";
+        }
+        document.getElementById("tableData").innerHTML = rows;
+    }
+    document.getElementById("search").addEventListener("keyup", function () {
+        var value = this.value.toLowerCase();
+        var filtered = [];
+        for (var i = 0; i < usersData.length; i++) {
+            if (usersData[i].name.toLowerCase().includes(value)) {
+                filtered.push(usersData[i]);
+            }
+        }
+        displayData(filtered);
+    });
+</script>
+</body>
+</html>
