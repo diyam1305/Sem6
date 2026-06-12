@@ -1,0 +1,15 @@
+<!--(6)	WAP for keyboard handling  event, when user presses any key inside the input box then the text color 
+will change from black to red-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<input type="text" id="inputBox" placeholder="Type here">
+
+<script>
+document.getElementById("inputBox").onkeypress = function() {
+    this.style.color = "red";
+} 
+</script>
+</body>
+</html>
