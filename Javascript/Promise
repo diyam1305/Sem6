@@ -1,0 +1,17 @@
+<html>
+    <body>
+        <script>
+            let password = "123";
+            let promise = new Promise((resolve, reject) => {
+                if(password === '1234'){
+                    resolve("Login successful");
+                }
+                else{
+                    reject("Invalid credentials");
+                }
+            });
+            promise.then((msg) =>console.log(msg))
+                .catch((err) => console.log(err));
+        </script>
+    </body>
+</html>
