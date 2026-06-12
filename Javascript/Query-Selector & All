@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <div>
+            <p>This is the paragraph1</p>
+            <p>This is the paragraph2</p>
+        </div>
+        <button onclick="check()">Try it</button>
+
+        <script>
+            function check(){
+                // document.querySelector("p").style.color = "white";
+                // document.querySelector("p").style.background = "green";
+                let a = document.querySelectorAll("p");
+                for(let i = 0; i<a.length; i++)
+                {
+                    a[i].style.background = "green";
+                    a[i].style.color = "yellow";
+                }
+            }
+        </script>
+    </body>
+</html>
