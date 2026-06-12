@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <script>
+            let input = prompt("Enter student marks separated by spaces:");
+            let marks = input.split(" ").map(Number);
+            marks.sort(function(a, b) 
+            {
+                return a - b;
+            });
+            let lowest = marks[0];
+            let highest = marks[marks.length - 1];
+            console.log("Sorted Marks: " + marks.join(", "));
+            console.log("Lowest Mark: " + lowest);
+            console.log("Highest Mark: " + highest);
+        </script>
+    </body>
+</html>

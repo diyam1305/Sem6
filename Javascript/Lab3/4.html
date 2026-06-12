@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <script>
+            let cart = [], choice;
+            do 
+            {
+                choice = prompt("Choose an option:\n1. Add item\n2. Remove item\n3. View cart\n4. Exit");
+                if (choice == "1") 
+                {
+                    let item = prompt("Enter item to add:");
+                    cart.push(item);
+                    console.log(item + " added to cart.");
+                }
+                else if (choice == "2") 
+                {
+                    let item = prompt("Enter item to remove:");
+                    let index = cart.indexOf(item);
+                    if (index != -1) 
+                    {
+                        cart.splice(index, 1);
+                        console.log(item + " removed from cart.");
+                    } 
+                    else 
+                    {
+                        console.log("Item not found in cart.");
+                    }
+                }
+                else if (choice == "3") 
+                {
+                    console.log("Your cart: " + cart.join(", "));
+                }
+            } 
+            while (choice != "4");
+            console.log("Exited.");
+
+        </script>
+    </body>
+</html>

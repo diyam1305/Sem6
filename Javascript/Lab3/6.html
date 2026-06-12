@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <script>
+            let cart = [];
+            let n = prompt("Enter number of items:");
+
+            for (let i = 0; i < n; i++) 
+            {
+                let name = prompt("Enter name of item:");
+                let price = parseInt(prompt("Enter price:"));
+                let quantity = parseInt(prompt("Enter quantity:"));
+                cart.push({ name, price, quantity });
+            }
+            let validItems = cart.filter(item => item.quantity > 0);
+            let itemTotals = validItems.map(item => item.price * item.quantity);
+            let totalBill = itemTotals.reduce((sum, value) => sum + value, 0);
+            console.log("Total Bill Amount = " + totalBill);
+
+        </script>
+    </body>
+</html>
