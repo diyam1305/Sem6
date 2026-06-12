@@ -1,0 +1,21 @@
+<!--(2)mobile number validation using regex in JavaScript framework-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<input type="text" id="mobile" placeholder="Enter Mobile Number">
+<button onclick="validate()">Check</button>
+
+<script>
+function validate() {
+    let num = document.getElementById("mobile").value;
+    let pattern = /^[0-9]{10}$/;
+
+    if(pattern.test(num))
+        alert("Valid Number");
+    else
+        alert("Invalid Number");
+}
+</script>
+</body>
+</html>
