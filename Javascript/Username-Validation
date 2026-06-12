@@ -1,0 +1,21 @@
+<!--(3)username validation-->
+<!DOCTYPE html>
+<html>
+<body>
+
+<input type="text" id="username" placeholder="Enter Username">
+<button onclick="validate()">Check</button>
+
+<script>
+function validate() {
+    let username = document.getElementById("username").value;
+    let pattern = /^.{8,}$/;
+
+    if(pattern.test(username))
+        alert("Valid Username");
+    else
+        alert("Minimum 8 characters required");
+}
+</script>
+</body>
+</html>
